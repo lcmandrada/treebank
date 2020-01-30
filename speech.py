@@ -8,7 +8,12 @@ from pydub.silence import split_on_silence
 
 def speech_to_text(path, length=1000, thresh=-16):
     text = str()
-    audio = AudioSegment.from_wav(path)
+    if path.endswith('.wav'):
+        audio = AudioSegment.from_wav(path)
+    elif path.endswith('.mp3'):
+        audio = AudioSegment.from_mp3(path)
+    else:
+        raise Exception('Unsupported audio file.')
     # print(audio.dBFS)
 
     # split track where silence is 0.5 seconds

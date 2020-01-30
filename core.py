@@ -16,7 +16,7 @@ from speech import speech_to_text
 
 # arguments configuration
 parser = argparse.ArgumentParser(description='Mapua Treebank')
-parser.add_argument('-a', '--audio', type=str,
+parser.add_argument('-a', '--audio_path', type=str,
                     default='harvard.wav', help='Audio path')
 parser.add_argument('-m', '--min_length', type=int,
                     default=2000, help='Silence min length')
@@ -33,7 +33,7 @@ jars = (os.path.join(STANFORD, 'stanford-corenlp-3.9.2.jar'),
         os.path.join(STANFORD, 'stanford-corenlp-3.9.2-models.jar'))
 
 # convert audio input to text
-raw_text = speech_to_text('harvard.wav', length=args.min_length,
+raw_text = speech_to_text(args.audio_path, length=args.min_length,
                           thresh=args.db_threshold)
 sentences = sent_tokenize(raw_text)
 text = [sent.capitalize() for sent in sentences]
