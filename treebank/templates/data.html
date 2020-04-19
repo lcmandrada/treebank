@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <table class="table table-borderless table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col" width="10%">Created</th>
+                    <th scope="col" width="20%">Speech Text</th>
+                    <th scope="col" width="20%">Part of Speech Tags</th>
+                    <th scope="col" width="40%">Productions</th>
+                    <th scope="col" width="10%">PCFG</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for text in texts %}
+                <tr>
+                    <td>{{ text['created'] }}</td>
+                    <td>{{ text['speech_text'] }}</td>
+                    <td>{{ text['pos_tagged'] }}</td>
+                    <td>{{ text['productions'] }}</td>
+                    <td>{{ text['pcfg'] }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>

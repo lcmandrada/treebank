@@ -22,3 +22,15 @@ pip install -U 'nltk[corenlp]'
 
 # nltk
 nltk.download('punkt')  
+
+# convert  
+sudo apt install imagemagick  
+
+# database  
+audio_bin  
+speech_text  
+pos_tagged  
+productions  
+pcfg  
+tree_bin  
+created  

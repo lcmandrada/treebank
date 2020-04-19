@@ -2,8 +2,7 @@ __pycache__
 .python-version
 .vscode
 
-audio_chunks
 stanford-corenlp-full-2018-10-05
 
-*.png
-*.ps
+backup/
+doc/
