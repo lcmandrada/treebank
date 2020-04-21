@@ -1,27 +1,41 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <style>
+            audio {
+                width: 300px;
+                height: 30px;
+            }
+        </style>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
         <table class="table table-borderless table-hover">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col" width="10%">Created</th>
-                    <th scope="col" width="20%">Speech Text</th>
-                    <th scope="col" width="20%">Part of Speech Tags</th>
-                    <th scope="col" width="40%">Productions</th>
-                    <th scope="col" width="10%">PCFG</th>
+                    <th scope="col" width="10%">Audio</th>
+                    <th scope="col" width="5%">Created</th>
+                    <th scope="col" width="15%">Speech Text</th>
+                    <th scope="col" width="15%">Part of Speech Tags</th>
+                    <th scope="col" width="25%">Productions</th>
+                    <th scope="col" width="5%">PCFG</th>
+                    <th scope="col" width="40%">Tree</th>
                 </tr>
             </thead>
             <tbody>
             {% for text in texts %}
                 <tr>
+                    <td>
+                        <audio controls>
+                            <source src="{{ text['audio'] }}" type="audio/wav">
+                        </audio>
+                    </td>
                     <td>{{ text['created'] }}</td>
                     <td>{{ text['speech_text'] }}</td>
                     <td>{{ text['pos_tagged'] }}</td>
                     <td>{{ text['productions'] }}</td>
                     <td>{{ text['pcfg'] }}</td>
+                    <td><img class="img-fluid" src="{{ text['tree'] }}"></td>
                 </tr>
             {% endfor %}
             </tbody>
