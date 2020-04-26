@@ -2,7 +2,5 @@ __pycache__
 .python-version
 .vscode
 
-stanford-corenlp-full-2018-10-05
-
 backup/
 doc/

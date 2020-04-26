@@ -1,0 +1,7 @@
+__pycache__
+
+audio/
+tree/
+
+*.wav
+*.png
