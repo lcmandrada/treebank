@@ -5,3 +5,5 @@ tree/
 
 *.wav
 *.png
+
+test_*

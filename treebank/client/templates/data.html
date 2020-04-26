@@ -16,8 +16,9 @@
                     <th scope="col" width="10%">Audio</th>
                     <th scope="col" width="5%">Created</th>
                     <th scope="col" width="15%">Speech Text</th>
-                    <th scope="col" width="15%">Part of Speech Tags</th>
-                    <th scope="col" width="25%">Productions</th>
+                    <th scope="col" width="10%">Part of Speech Tags</th>
+                    <th scope="col" width="10%">Named Entity Tags</th>
+                    <th scope="col" width="20%">Productions</th>
                     <th scope="col" width="5%">PCFG</th>
                     <th scope="col" width="40%">Tree</th>
                 </tr>
@@ -33,6 +34,7 @@
                     <td>{{ text['created'] }}</td>
                     <td>{{ text['speech_text'] }}</td>
                     <td>{{ text['pos_tagged'] }}</td>
+                    <td>{{ text['named_entities'] }}</td>
                     <td>{{ text['productions'] }}</td>
                     <td>{{ text['pcfg'] }}</td>
                     <td><img class="img-fluid" src="{{ text['tree'] }}"></td>

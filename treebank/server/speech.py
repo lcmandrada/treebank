@@ -61,7 +61,7 @@ def speech_to_text(path, length=1000, thresh=-16):
             # try converting it to text
             rec = r.recognize_sphinx(audio_listened)
             # write the output to the file.
-            text.append((rec.capitalize() + '.', chunk_path))
+            text.append((rec.capitalize(), chunk_path))
         except sr.UnknownValueError:
             print("Sphinx could not understand audio")
         except sr.RequestError as e:
