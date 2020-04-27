@@ -1,4 +1,3 @@
-import re
 import os
 import uuid
 
@@ -6,12 +5,13 @@ from functools import reduce
 from operator import mul
 from shutil import rmtree
 
-import nltk
 from bson import Binary
 from nltk import Nonterminal, induce_pcfg, ne_chunk
 from nltk.draw import TreeWidget
 from nltk.draw.util import CanvasFrame
 from nltk.parse import CoreNLPParser
+
+from mapua import preprocess, tag_entities
 
 
 # stanford parser
@@ -50,6 +50,8 @@ def parse(sentence: str, save: bool = False,
           index: str = str(uuid.uuid4())) -> dict:
     results = dict()
 
+    sentence = preprocess(sentence)
+
     print(f'Sentence: {sentence}')
     results['speech_text'] = sentence
 
@@ -65,6 +67,7 @@ def parse(sentence: str, save: bool = False,
     ne_tags = ne_chunk(tagged)
     entities = [(tag.label(), ' '.join(t[0] for t in tag))
                 for tag in ne_tags if hasattr(tag, 'label')]
+    ne_tags.extend(tag_entities(tagged))
     print(f'Entities: {entities}\n')
     results['named_entities'] = entities
 
