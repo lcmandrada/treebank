@@ -10,7 +10,8 @@
 
 # pocketsphinx
 pip install pocketsphinx  
-sudo apt-get install python python-setuptools python-dev python-augeas gcc swig dialog libpulse-dev libasound2-dev  
+sudo apt-get install python python-setuptools python-dev python-augeas gcc swig dialog libpulse-dev libasound2-dev   
+sudo apt-get install python-augeas gcc swig dialog libpulse-dev libasound2-dev   
 
 # pydub
 pip install pydub  
@@ -18,7 +19,7 @@ sudo apt install ffmpeg
 
 # core
 sudo apt install default-jdk  
-pip install -U 'nltk[corenlp]'  
+pip install -U "nltk[corenlp]"  
 
 # nltk
 nltk.download('punkt')  
