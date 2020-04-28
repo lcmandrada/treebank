@@ -14,10 +14,8 @@ from nltk.parse import CoreNLPParser
 from mapua import preprocess, tag_entities
 
 
-# stanford parser
 pos_parser = CoreNLPParser(url='http://localhost:9000', tagtype='pos')
 
-# tree dir
 trees_path = 'tree'
 if os.path.exists(trees_path):
     rmtree(trees_path)
@@ -46,7 +44,7 @@ def save_image(parsed, index: str) -> Binary:
     return tree_bin
 
 
-def parse(sentence: str, save: bool = False,
+def parse(sentence: str, save: bool = True,
           index: str = str(uuid.uuid4())) -> dict:
     results = dict()
 
@@ -67,7 +65,7 @@ def parse(sentence: str, save: bool = False,
     ne_tags = ne_chunk(tagged)
     entities = [(tag.label(), ' '.join(t[0] for t in tag))
                 for tag in ne_tags if hasattr(tag, 'label')]
-    ne_tags.extend(tag_entities(tagged))
+    entities.extend(tag_entities(tagged))
     print(f'Entities: {entities}\n')
     results['named_entities'] = entities
 
@@ -86,7 +84,7 @@ def parse(sentence: str, save: bool = False,
     probabilities = [prod.prob() for prod in grammar._productions]
     pcfg = reduce(mul, probabilities)
 
-    print(pcfg)
+    print(pcfg, '\n')
     results['pcfg'] = pcfg
 
     if save:

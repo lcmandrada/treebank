@@ -6,4 +6,5 @@ tree/
 *.wav
 *.png
 
+test/
 test.py
