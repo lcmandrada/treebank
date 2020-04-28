@@ -10,7 +10,7 @@ from speech import speech_to_text
 
 
 # arguments configuration
-parser = argparse.ArgumentParser(description='Mapua Treebank')
+parser = argparse.ArgumentParser(description='Mapúa Treebank')
 parser.add_argument('audio_path', type=str, help='Audio path')
 parser.add_argument('-m', '--min_length', type=int,
                     default=2000, help='Silence min length')

@@ -63,13 +63,13 @@ def speech_to_text(path, length=1000, thresh=-16):
             # write the output to the file.
             text.append((rec.capitalize(), chunk_path))
         except sr.UnknownValueError:
-            print("Sphinx could not understand audio")
+            print('Sphinx could not understand the audio')
         except sr.RequestError as e:
-            print("Sphinx error; {0}".format(e))
+            print(f'Sphinx error: {e}')
 
     return text
 
 
 if __name__ == '__main__':
-    text = speech_to_text('harvard.wav', length=2000, thresh=-32)
+    text = speech_to_text('test.wav', length=1000, thresh=-32)
     print(text)
