@@ -17,7 +17,8 @@ parser.add_argument('-d', '--db_threshold', type=int,
                     default=-32, help='Silence dB treshold')
 parser.add_argument('-s', '--save_image', action='store_true',
                     help='Save tree as image')
-parser.add_argument('-a', '--speech_api', type=str, help='Speech API')
+parser.add_argument('-a', '--speech_api', type=str,
+                    default='sphinx', help='Speech API')
 args = parser.parse_args()
 
 
