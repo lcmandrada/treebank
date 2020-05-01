@@ -5,6 +5,8 @@ This prototype builds a grammar tree and calculates a probability context free g
 - Stanford Parser Server
 - Main System with API
 - Web App Server
+- Asterisk Server
+- MongoDB
 
 # Processes
 1. Input audio
