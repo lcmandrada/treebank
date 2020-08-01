@@ -60,7 +60,8 @@ def speech_to_text(path, min_length=1000, db_threshold=-32,
             else:
                 rec = r.recognize_sphinx(audio_listened)
 
-            text.append((rec.capitalize(), chunk_path))
+            if rec:
+                text.append((rec.capitalize(), chunk_path))
         except sr.UnknownValueError:
             print('Speech API could not understand the audio')
         except sr.RequestError as e:
@@ -70,6 +71,6 @@ def speech_to_text(path, min_length=1000, db_threshold=-32,
 
 
 if __name__ == '__main__':
-    text = speech_to_text('test/test.wav', min_length=1000, db_threshold=-32,
-                          speech_api='houndify')
+    text = speech_to_text('test/5.wav', min_length=1000, db_threshold=-32,
+                          speech_api='sphinx')
     print(text)

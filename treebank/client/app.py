@@ -19,7 +19,7 @@ os.makedirs(tree_dir, exist_ok=True)
 
 @app.route('/')
 def main():
-    raw_texts = db.texts.find().sort('created', -1)
+    raw_texts = db.texts.find().sort('created', -1).limit(10)
 
     texts = list()
     for text in raw_texts:
