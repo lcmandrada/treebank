@@ -264,7 +264,7 @@ NORTH_ROOM_2_STR = 'Mapúa - North Room, 2nd Floor'
 NORTH_ROOM_3_STR = 'Mapúa - North Room, 3rd Floor'
 NORTH_ROOM_4_STR = 'Mapúa - North Room, 4th Floor'
 ABBR_STR = 'Mapúa - Course Abbreviation'
-TERMS_STR = 'Mapúa - CPE Terminologies'
+TERMS_STR = 'Mapúa - CPE Term'
 
 ENTITIES = {
     'GENERAL-CHEMISTRY-FOR-ENGINEERS-LECTURE': COURSE_STR,
