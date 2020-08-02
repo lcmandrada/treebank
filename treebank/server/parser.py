@@ -38,6 +38,7 @@ def save_image(parsed, index: str) -> Binary:
     os.system(f'convert {trees_path}/tree_{index}.ps '
               f'{trees_path}/tree_{index}.png')
     os.remove(f'{trees_path}/tree_{index}.ps')
+
     with open(f'{trees_path}/tree_{index}.png', 'rb') as tree_img:
         tree_bin = Binary(tree_img.read())
 
