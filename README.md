@@ -30,3 +30,11 @@ This prototype builds a grammar tree and calculates a probability context free g
 - pcfg  
 - tree_bin  
 - created  
+
+# Environment Variables
+## Client
+### MONGODB_SERVER_HOST
+IP address of the server where MongoDB is hosted
+
+### MONGODB_SERVER_PORT
+Port of the server where MongoDB is exposed

@@ -3,7 +3,7 @@ import os
 from copy import deepcopy
 from datetime import timezone
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request, url_for
 
 from database import db
 
@@ -16,10 +16,23 @@ os.makedirs(audio_dir, exist_ok=True)
 tree_dir = 'static/tree'
 os.makedirs(tree_dir, exist_ok=True)
 
+PAGE_SIZE = 10
+
 
 @app.route('/')
+@app.route('/index')
 def main():
-    raw_texts = db.texts.find().sort('created', -1).limit(10)
+    page = request.args.get('page', 1, type=int)
+
+    query = db.texts.find().sort('created', -1)
+    raw_texts = query.skip((page - 1) * PAGE_SIZE).limit(PAGE_SIZE)
+
+    pagination = {
+        'page': page,
+        'prev_url': None if page == 1 else url_for('main', page=page-1),
+        'next_url': None if query.count() <= (page * PAGE_SIZE)
+        else url_for('main', page=page+1)
+    }
 
     texts = list()
     for text in raw_texts:
@@ -56,7 +69,7 @@ def main():
 
         texts.append(formatted)
 
-    return render_template('data.html', texts=texts)
+    return render_template('data.html', texts=texts, pagination=pagination)
 
 
 if __name__ == '__main__':
