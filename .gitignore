@@ -5,5 +5,4 @@ __pycache__
 backup/
 doc/
 
-*.wav
 venv/

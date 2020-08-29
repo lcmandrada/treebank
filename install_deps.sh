@@ -10,6 +10,8 @@ sudo apt -y install python-augeas3 gcc swig dialog libpulse-dev libasound2-dev
 # pydub
 sudo apt -y install ffmpeg
 
+sudo apt -y install libatlas-base-dev
+
 # convert
 sudo apt -y install imagemagick
 # sudo vi /etc/ImageMagick-7/policy.xml
@@ -19,6 +21,8 @@ sudo apt -y install imagemagick
 sudo apt -y install mongodb
 sudo systemctl enable mongodb
 sudo systemctl start mongodb
+# sudo vi /etc/mongodb.conf
+# bind = 0.0.0.0
 
 # pip deps
 pip install -r requirements.txt

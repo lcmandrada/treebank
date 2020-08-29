@@ -45,7 +45,7 @@ def main():
                 audio_bin.write(text['audio_bin'])
         formatted['audio'] = audio_file
 
-        print(text['created'].replace(tzinfo=timezone.utc))
+        text['created'].replace(tzinfo=timezone.utc)
         formatted['created'] = text['created'].strftime(
             '%B %d, %Y %I:%M:%S %p %z')
 
