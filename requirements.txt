@@ -4,5 +4,5 @@ numpy==1.18.3
 pocketsphinx==0.1.15
 pydub==0.23.1
 pymongo==3.4.0
-requests==2.22.0
+requests==2.31.0
 SpeechRecognition==3.8.1
